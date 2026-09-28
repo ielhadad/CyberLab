@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use CyberLab in teaching or research, please cite it as below."
+title: "CyberLab: A Segmented, One-Command Cyber Range for Hands-On Security Education"
+type: software
+authors:
+  - family-names: "Elhadad"
+    given-names: "Saaid"
+    email: "saaidelhadad@gmail.com"
+version: "1.0.0"
+date-released: "2026-09-28"
+license: MIT
+repository-code: "https://github.com/ielhadad/cyberlab"
+abstract: >-
+  An open-source cyber range for hands-on cybersecurity courses. One script
+  builds an isolated network on VirtualBox or AWS EC2: a Kali attacker, a
+  firewalled DMZ (OWASP Juice Shop, DVWA), a pivot-only LAN (Metasploitable 2)
+  and a Suricata IDS, with a built-in self-test and one-step reset to support
+  project-based learning mapped to NICE Framework work roles.
+keywords:
+  - cyber range
+  - cybersecurity education
+  - project-based learning
+  - experiential learning
+  - NICE Framework
+  - Docker
+  - Suricata
