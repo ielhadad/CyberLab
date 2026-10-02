@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+title: "Tiny CyberLab (TCL): A reproducible Docker-based cyber range for project-based cybersecurity education"
+message: "If you use this software or its lab materials, please cite it as below."
+type: software
+authors:
+  - family-names: "Elhadad"
+    given-names: "Saaid"
+    affiliation: "Capital Community College"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # add if available
+repository-code: "https://github.com/ielhadad/tiny-cyberlab"
+abstract: >-
+  Tiny CyberLab (TCL) is a small, reproducible cyber range that runs an entire
+  attack-and-defend teaching environment as Docker containers on a single host.
+  It provides 18 NICE-framework-aligned labs for project-based and experiential
+  cybersecurity education, designed to lower the cost and complexity barriers to
+  hands-on practice in higher education.
+keywords:
+  - cybersecurity education
+  - cyber range
+  - project-based learning
+  - experiential learning
+  - NICE framework
+  - Docker
+license: MIT
+license-url: "https://github.com/ielhadad/tiny-cyberlab/blob/main/LICENSE"
+version: "1.2.0"
+date-released: "2026-10-02"
+
+# TODO: Replace the placeholder entries below with your real publications,
+# then remove this comment. Delete the whole 'references:' block if unused.
+references:
+  - type: article            # or: conference-paper, report, thesis
+    title: "REPLACE WITH PUBLICATION TITLE 1"
+    authors:
+      - family-names: "Elhadad"
+        given-names: "Saaid"
+    year: 2026
+    # doi: "10.xxxx/xxxxx"
+    # url: "https://example.com/paper1"
+  - type: article
+    title: "REPLACE WITH PUBLICATION TITLE 2"
+    authors:
+      - family-names: "Elhadad"
+        given-names: "Saaid"
+    year: 2026
+    # doi: "10.xxxx/xxxxx"
+    # url: "https://example.com/paper2"
