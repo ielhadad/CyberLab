@@ -16,7 +16,7 @@ in an isolated lab (see [DISCLAIMER.md](DISCLAIMER.md)).
 ## Reporting
 Please report privately rather than opening a public issue. Use GitHub's
 **"Report a vulnerability"** (Security → Advisories) on this repository, or
-email the maintainer at `<contact-email>`. We aim to acknowledge within a few
+email the maintainer at saaidelhadad@gmail.com. We aim to acknowledge within a few
 business days.
 
 Do **not** include real credentials or data in a report.
