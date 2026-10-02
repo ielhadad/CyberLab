@@ -1,0 +1,14 @@
+$TTL 604800
+@   IN  SOA dns.cipher.lab. admin.cipher.lab. ( 3 604800 86400 2419200 604800 )
+@       IN  NS   dns.cipher.lab.
+@       IN  MX 10 mail.cipher.lab.
+@       IN  TXT  "v=spf1 mx -all"
+dns     IN  A    10.30.0.53
+attacker IN A    10.30.0.10
+juice   IN  A    10.30.0.20
+dvwa    IN  A    10.30.0.21
+victim  IN  A    10.30.0.30
+ids     IN  A    10.30.0.40
+caldera IN  A    10.30.0.50
+mail    IN  A    10.30.0.25
+intranet IN CNAME juice.cipher.lab.

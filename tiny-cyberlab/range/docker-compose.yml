@@ -1,0 +1,95 @@
+# Tiny CyberLab (TCL) — reference topology for the 18 TCL lab exercises.
+# One Ubuntu Server host (VirtualBox VM) runs all of this.
+#   docker compose up -d
+#   docker ps                      # confirm names/IPs
+#   docker network inspect cyberlab_net
+#
+# Attacker access from the Ubuntu host:
+#   RDP   -> <lab-host-ip>:3389   (full XFCE desktop; user root / cyberrange)  <-- GUI labs
+#   ttyd  -> http://<lab-host-ip>:7681   (browser terminal)
+#   SSH   -> ssh root@<lab-host-ip> -p 2222   (password: cyberrange)
+#   docker exec -it attacker bash
+#
+# The attacker image ships an XFCE desktop over XRDP, so the GUI labs
+# (Zenmap, Armitage, Burp, Wireshark, Ettercap) run inside the container —
+# no separate Kali VM needed. The image is large; first build takes a while.
+
+name: tcl
+
+networks:
+  cyberlab_net:
+    name: cyberlab_net
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.30.0.0/24
+          gateway: 10.30.0.1
+
+services:
+  attacker:                      # 10.30.0.10  Kali tools + XFCE desktop over RDP
+    build: ./attacker
+    container_name: attacker
+    hostname: attacker
+    cap_add: ["NET_ADMIN","NET_RAW"]   # needed for scapy/hping/ettercap
+    shm_size: "1gb"              # browsers / GUI apps need shared memory
+    networks:
+      cyberlab_net: { ipv4_address: 10.30.0.10 }
+    ports:
+      - "3389:3389"              # XRDP desktop -> RDP to <lab-host-ip>:3389
+      - "7681:7681"              # ttyd browser terminal
+      - "2222:22"                # SSH
+    restart: unless-stopped
+
+  dns:                           # 10.30.0.53  BIND authoritative for cipher.lab
+    image: internetsystemsconsortium/bind9:9.18
+    container_name: dns
+    hostname: dns
+    networks:
+      cyberlab_net: { ipv4_address: 10.30.0.53 }
+    volumes:
+      - ./dns/named.conf:/etc/bind/named.conf:ro
+      - ./dns/zones:/etc/bind/zones:ro
+    restart: unless-stopped
+
+  juice-shop:                    # 10.30.0.20  OWASP Juice Shop :3000
+    image: bkimminich/juice-shop
+    container_name: juice-shop
+    hostname: juice-shop
+    networks:
+      cyberlab_net: { ipv4_address: 10.30.0.20 }
+    restart: unless-stopped
+
+  dvwa:                          # 10.30.0.21  DVWA :80 (app login admin/password)
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    hostname: dvwa
+    networks:
+      cyberlab_net: { ipv4_address: 10.30.0.21 }
+    restart: unless-stopped
+
+  victim:                        # 10.30.0.30  Metasploitable 2 (msfadmin/msfadmin)
+    image: tleemcjr/metasploitable2
+    container_name: victim
+    hostname: victim
+    command: ["/bin/sh","-c","/usr/sbin/sshd -D 2>/dev/null & /etc/rc.local; tail -f /dev/null"]
+    networks:
+      cyberlab_net: { ipv4_address: 10.30.0.30 }
+    restart: unless-stopped
+
+  ids:                           # 10.30.0.40  Suricata sensor
+    image: jasonish/suricata:latest
+    container_name: ids
+    hostname: ids
+    network_mode: "service:victim"   # watch the victim's traffic; or use host/mirror
+    cap_add: ["NET_ADMIN","NET_RAW","SYS_NICE"]
+    command: ["-i","eth0"]
+    restart: unless-stopped
+
+  caldera:                       # 10.30.0.50  MITRE Caldera :8888
+    image: ghcr.io/mitre/caldera:latest
+    container_name: caldera
+    hostname: caldera
+    networks:
+      cyberlab_net: { ipv4_address: 10.30.0.50 }
+    ports: ["8888:8888"]
+    restart: unless-stopped
