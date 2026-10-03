@@ -17,9 +17,10 @@ private information, and — given the nature of this project — encouraging or
 soliciting the use of its tools against systems without authorization.
 
 ## Enforcement
-Instances of abusive or otherwise unacceptable behavior may be reported to the
-maintainer at `<contact-email>`. All complaints will be reviewed and
-investigated promptly and fairly.
+Instances of abusive or otherwise unacceptable behavior may be reported by
+opening an issue on this repository, or by contacting a maintainer through their
+GitHub profile. All complaints will be reviewed and investigated promptly and
+fairly.
 
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org),
 version 2.1.
