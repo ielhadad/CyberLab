@@ -1,0 +1,39 @@
+# ---------------------------------------------------------------------------
+# CyberLab .gitignore — keeps secrets and local junk out of the repository.
+# This is a backstop, NOT a substitute for checking `git status` before commits.
+# ---------------------------------------------------------------------------
+
+# --- Secrets and keys (NEVER commit these) ---
+*.pem
+*.key
+*.ppk
+labsuser.pem
+cyberlab-key.pem
+id_rsa
+id_ed25519
+.aws/
+credentials
+aws_credentials
+*.env
+.env
+
+# --- Generated credentials / rosters (contain student data) ---
+rosters/
+out/
+credentials-*.csv
+*-credentials.csv
+
+# --- Logs and runtime output ---
+*.log
+cyberlab-bootstrap.log
+
+# --- Release artifacts (attach these to a Release instead of committing) ---
+cyberlab-kit.zip
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
