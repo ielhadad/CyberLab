@@ -1,4 +1,4 @@
-<!-- Replace ielhadad and <contact-email> before publishing. -->
+<!-- Replace ielhadad and <contact-saaidelhadad@gmail.com> before publishing. -->
 # Tiny CyberLab (TCL)
 
 **A small, reproducible, Docker-based cyber range for hands-on cybersecurity
