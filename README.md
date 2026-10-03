@@ -1,4 +1,3 @@
-<!-- Replace ielhadad and <contact-saaidelhadad@gmail.com> before publishing. -->
 # Tiny CyberLab (TCL)
 
 **A small, reproducible, Docker-based cyber range for hands-on cybersecurity
@@ -159,8 +158,7 @@ your syllabus, and contribute improvements back. See
 
 ## Citing this work
 
-If you use TCL in teaching or research, please cite it — see
-[CITATION.cff](CITATION.cff) or:
+If you use TCL in teaching or research, please cite it as:
 
 > Elhadad, S. (2026). *Tiny CyberLab (TCL): A reproducible Docker-based cyber
 > range for project-based cybersecurity education.* Capital Community College.
@@ -177,7 +175,7 @@ ranges. <!-- TODO: replace the placeholders below with your real titles, venues,
 - [Publication title 2] — _[Venue], [Year]._ [link](#)
 - [Publication title 3] — _[Venue], [Year]._ [link](#)
 
-<!-- Add or remove entries as needed. See CITATION.cff for machine-readable references. -->
+<!-- Add or remove entries as needed. -->
 
 ---
 
