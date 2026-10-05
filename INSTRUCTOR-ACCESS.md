@@ -1,6 +1,6 @@
 # Instructor Answer Key — access
 
-An **Instructor Answer Key & Grading Guide** exists for all 26 labs. It contains
+An **Instructor Answer Key & Grading Guide** exists for all 30 labs. It contains
 the Capture-the-Flag flag answers, guided-track checkpoints, and grading notes.
 
 To protect the integrity of the exercises, the answer key is **not published in
