@@ -4,7 +4,7 @@ All notable changes to Tiny CyberLab (TCL) are documented here. Format based on
 [Keep a Changelog](https://keepachangelog.com/); versioning is
 [SemVer](https://semver.org/).
 
-## [Unreleased]
+## v2.1.0 - 2026-10-08
 ### Added
 - Deployment guides for six environments in `docs/deploy/` (VirtualBox, AWS, AWS
   Academy Learner Lab, Azure, VPS, Proxmox).
