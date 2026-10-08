@@ -114,6 +114,7 @@ student-facing version, including the **pivoting primer** for the LAN labs.
 All guides live in [`docs/`](docs/):
 
 **Start here**
+- [Deployment guides for all environments](docs/deploy/README.md) — VirtualBox, AWS, AWS Academy, Azure, VPS and Proxmox
 - [Deployment Runbook (PDF)](docs/CyberLab%20Deployment%20Runbook.pdf) — full teacher + student walkthrough for VirtualBox and AWS
 - [Deployment checklist](docs/deploy-checklist.md) — one-page, tick-as-you-go setup
 - [Quick reference (PDF)](docs/CyberLab%20Quick%20Reference.pdf) — one-screen cheat sheet
