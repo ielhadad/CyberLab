@@ -89,7 +89,7 @@ Check the live layout any time with `nmap -sn 10.20.0.0/24` or, on the host,
 
 ## Step 4 — Open your lab and pick a track
 
-Each lab is a Word document (`labs/TCL_NN_...docx`). Open the one your instructor
+# Each lab is a Word document (`labs/TCL_NN_...docx`). Open the one your instructor
 assigned. Every lab offers the **same exercise at three levels of support** — do the
 one your instructor set, or climb the ladder yourself:
 
