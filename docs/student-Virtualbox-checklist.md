@@ -23,7 +23,8 @@ build).
 - [ ] VirtualBox → **New**. Name `cyberlab-host`, Type **Linux**, Version **Ubuntu (64-bit)**.
 - [ ] Memory: **8192 MB+** (16384 if you can). CPUs: **4+**.
 - [ ] Create a virtual hard disk: **60 GB**.
-- [ ] **Settings → Network → Adapter 1**: set to **Bridged** (or **Host-Only**) so you can reach the VM.
+- [ ] **Settings → Network → Adapter 1**: leave on **NAT** (gives the VM internet access).
+- [ ] **Settings → Network → Adapter 2**: enable it and set to **Host-Only Adapter**, so you can reach the VM from your computer. Do **not** use **Bridged** — it puts the lab VM on your home or campus network.
 - [ ] **Settings → Storage**: attach the Ubuntu ISO to the optical drive.
 
 ## C. Install Ubuntu Server
@@ -31,7 +32,7 @@ build).
 - [ ] Create your login username and password.
 - [ ] When offered, **enable "Install OpenSSH server"** (you need SSH to deploy).
 - [ ] Finish, reboot, and log in.
-- [ ] Note the VM's IP: run **`ip a`** and copy the `10.x`/`192.168.x` address → this is `<vm-ip>`.
+- [ ] Note the VM's IP: run **`ip a`** and copy the Host-Only address (usually `192.168.56.x`; not `10.0.2.15`, which is the NAT adapter) → this is `<vm-ip>`.
 
 ## D. Snapshot the clean install
 - [ ] Power off the VM, then in VirtualBox take a **Snapshot** named "clean install" (lets you roll back in seconds).

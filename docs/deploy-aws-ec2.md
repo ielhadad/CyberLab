@@ -30,8 +30,10 @@ Metasploit or OpenVAS on demand.
 | Use | Instance type | vCPU / RAM | Notes |
 | --- | --- | --- | --- |
 | Minimum | `t3.large` | 2 / 8 GB | Works; builds are slow and heavy labs feel tight |
-| **Recommended** | `t3.xlarge` | 4 / 16 GB | Comfortable for one class running the same lab |
-| Heavy / shared | `t3.2xlarge` | 8 / 32 GB | Multiple attackers or OpenVAS + Metasploit together |
+| **Recommended** | `t3.xlarge` | 4 / 16 GB | Comfortable for one student, including the heavier labs |
+| Heavy | `t3.2xlarge` | 8 / 32 GB | One student running OpenVAS + Metasploit together |
+
+Each instance serves **one student**. For a class, launch one instance per student.
 
 - **Storage:** attach a **50 GB gp3** root EBS volume. The container images (Kali,
   Metasploitable, Juice Shop) are large.
@@ -131,7 +133,7 @@ From here the range behaves exactly like the VirtualBox version — hand student
 Pick one model:
 
 - **Tunnel model (most secure):** each student SSHs in with the key and forwards 3389
-  as in Step 6. Good for a small group; give them a read-only lab user.
+  as in Step 6, to their own instance.
 - **Bastion / VPN model:** put the instance in a private subnet and front it with a
   VPN or AWS Systems Manager Session Manager; students connect through that.
 - **Per-student instances:** for parallel work, launch one instance per student from

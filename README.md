@@ -12,10 +12,11 @@ Oracle VirtualBox). Instead of one flat network, the range is **segmented into
 three zones — Internet, DMZ, and an internal LAN — behind a firewall router**, so
 students practise realistic skills like working through a firewall and pivoting to
 reach an internal host. A student needs only an RDP client or a terminal to
-complete a full penetration-testing curriculum — no per-student VMs, no cloud
-bill, no specialized hardware.
+complete a full penetration-testing curriculum. Each student uses one lightweight
+host (a VirtualBox VM, a cloud instance or a VPS), or an instructor can run isolated
+copies for up to 10 students on one Proxmox server. No specialized hardware is needed.
 
-TCL ships with **26 ready-to-run labs** mapped to the
+TCL ships with **30 ready-to-run labs** mapped to the
 [NICE Workforce Framework for Cybersecurity](https://niccs.cisa.gov/workforce-development/nice-framework)
 (NIST SP 800-181 Rev. 1), spanning reconnaissance, scanning, vulnerability
 analysis, exploitation, post-exploitation, and defensive analysis.
@@ -54,8 +55,8 @@ statement, approach, contribution, and evaluation plan.
 | Component | Description |
 | --- | --- |
 | `range/` | The reference topology: `docker-compose.yml`, the attacker image, and a BIND zone. |
-| `labs/` | 26 instructor-authored lab exercises (.docx), NICE-mapped, with a deliverable and rubric cues. |
-| `docs/` | Topology diagram, architecture, instructor guide, student quick-start, NICE mapping, research context, and an optional CAI (AI pentest agent) add-on. |
+| `docs/` | Topology diagram, architecture, deployment guides, instructor guide, student quick-start, NICE mapping, research context, an optional CAI (AI pentest agent) add-on, and the Instructor Resource Kit. |
+| `docs/InstructorKit.7z` | Instructor Resource Kit (encrypted): the 30 lab exercises (.docx), NICE-mapped, with a deliverable and rubric cues. See [how to request the key](docs/Instructor%20Resources%20Kit.txt). |
 
 ### The range
 
@@ -100,9 +101,8 @@ docker ps                          # confirm names/IPs
 | RDP desktop | `127.0.0.1:3389` (root / cyberrange) | GUI labs (Zenmap, Armitage, Burp, Wireshark, Ettercap) |
 | Terminal | `docker exec -it attacker bash` | CLI labs |
 
-> For remote students, publish RDP on the host's LAN IP (change `127.0.0.1:3389`
-> to `3389:3389` in `range/docker-compose.yml`) and tunnel over the VPN/SSH — never
-> expose it to the public internet.
+> Remote students reach RDP through an SSH tunnel to `127.0.0.1:3389`. Keep RDP
+> bound to `127.0.0.1` and never expose it to a campus network or the public internet.
 
 See [`docs/student-quickstart.md`](docs/student-quickstart.md) for the
 student-facing version, including the **pivoting primer** for the LAN labs.
@@ -115,7 +115,7 @@ All guides live in [`docs/`](docs/):
 
 **Start here**
 - [Deployment guides for all environments](docs/deploy/README.md) — VirtualBox, AWS, AWS Academy, Azure, VPS and Proxmox
-- [Deployment Runbook (PDF)](docs/CyberLab%20Deployment%20Runbook.pdf) — full teacher + student walkthrough for VirtualBox and AWS
+- [Deployment Runbook (PDF)](docs/VBox%20Deployment%20Runbook.pdf) — full teacher + student walkthrough for VirtualBox and AWS
 - [Deployment checklist](docs/deploy-checklist.md) — one-page, tick-as-you-go setup
 - [Quick reference (PDF)](docs/CyberLab%20Quick%20Reference.pdf) — one-screen cheat sheet
 
@@ -135,15 +135,19 @@ All guides live in [`docs/`](docs/):
 
 ---
 
-## The 26 labs
+## The 30 labs
 
-See [`labs/README.md`](labs/README.md) for the full index. In short: DNS
+The lab documents are distributed to instructors in the Instructor Resource Kit
+([request the key](docs/Instructor%20Resources%20Kit.txt)); their NICE alignment is in
+[docs/nice-framework-mapping.md](docs/nice-framework-mapping.md). In short: DNS
 reconnaissance, packet crafting, Nmap/Masscan recon, hping, OpenVAS, network
 analysis, IDS evasion, password cracking, Metasploit, web pentesting, BeEF,
 ARP/MITM, buffer overflows, SQL injection, Netcat and VNC backdoors, TLS
 certificates, social engineering with SET, scanning methodology, SMB
 enumeration, privilege escalation, Windows SAM cracking, covering tracks,
-web cookie forgery, Android hacking, and command-line cryptography. Each lab
+web cookie forgery, Android hacking, command-line cryptography, incident response,
+digital forensics, Linux command-line essentials, and Suricata log and traffic
+analysis. Each lab
 ships with three tracks — **Guided**, **Unguided**, and **Capture-the-Flag**.
 
 ---
@@ -183,7 +187,7 @@ ranges. <!-- TODO: replace the placeholders below with your real titles, venues,
 ## License
 
 - **Code and configuration** (`range/`, scripts, CI): [MIT](LICENSE).
-- **Lab content and documentation** (`labs/`, `docs/`): [CC BY 4.0](LICENSE-docs).
+- **Lab content and documentation** (Instructor Resource Kit, `docs/`): [CC BY 4.0](LICENSE-docs).
 
 This dual-license lets anyone reuse the infrastructure freely while requiring
 attribution for the teaching materials. Prefer copyleft? Swap `LICENSE` for

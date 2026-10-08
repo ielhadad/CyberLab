@@ -6,7 +6,8 @@ How to stand up Tiny CyberLab (TCL) and run it with a class.
 1. Create a **Kali or Ubuntu Server** VM in Oracle VirtualBox (4+ vCPU and 8+ GB
    RAM recommended; the attacker desktop image is large). **Linux host networking
    is required** for the Suricata sensor.
-2. Give the VM a **host-only or bridged** adapter if you want to tunnel RDP to it.
+2. Keep Adapter 1 on **NAT** and add a **Host-Only** adapter if you want to tunnel RDP to it.
+   Do not use Bridged: it places the lab VM on the campus or home network.
    The lab ports are published on `127.0.0.1` only; students connect from the host
    itself or over a VPN/SSH tunnel — never expose RDP to the public internet.
 3. Install Docker Engine and the Compose plugin.
@@ -35,10 +36,10 @@ Optional: pre-pull target images (`docker compose pull`) before class.
   lesson — see the answer key).
 
 ## 4. Running it with students
-- **Shared vs. per-student:** one range comfortably supports a small group doing
-  the same lab. For larger or parallel work, run one range per student (a VM
-  clone, or one `attacker` per student on the same network) and have each student
-  take their own snapshot.
+- **One range per student:** each VirtualBox, AWS, AWS Academy, Azure or VPS
+  deployment serves one dedicated student. To serve a class from shared hardware,
+  use Proxmox, which runs isolated copies for up to 10 students at once (see
+  [deploy/proxmox.md](deploy/proxmox.md)). Have each student take their own snapshot.
 - **Reset between sessions:**
   ```bash
   cd range

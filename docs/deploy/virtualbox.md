@@ -22,7 +22,7 @@ Back to [all environments](README.md).
 
 ## Safety rules
 
-1. Prefer **NAT** networking with an SSH port forward (host `127.0.0.1:2222` to guest port 22), so the lab VM stays off your home or campus network.
+1. Use **NAT** (Adapter 1) plus a **Host-Only** adapter (Adapter 2), or NAT with an SSH port forward (host `127.0.0.1:2222` to guest port 22). Never use **Bridged**: the lab VM must stay off your home or campus network.
 2. Only work against the hosts inside the range.
 3. Take a snapshot of the clean install so you can roll back in seconds.
 

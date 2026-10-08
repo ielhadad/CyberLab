@@ -4,6 +4,21 @@ All notable changes to Tiny CyberLab (TCL) are documented here. Format based on
 [Keep a Changelog](https://keepachangelog.com/); versioning is
 [SemVer](https://semver.org/).
 
+## [Unreleased]
+### Added
+- Deployment guides for six environments in `docs/deploy/` (VirtualBox, AWS, AWS
+  Academy Learner Lab, Azure, VPS, Proxmox).
+### Changed
+- The series is now 30 labs. Lab documents moved from `labs/` into the encrypted
+  Instructor Resource Kit (`docs/InstructorKit.7z`).
+- NICE Framework mapping updated to NICE Framework Components v2.2.0; labs that used
+  the removed Cyberspace Effects category were remapped to current work roles, and all
+  work-role IDs were checked against the v2.2.0 components.
+- Each VirtualBox, cloud or VPS deployment serves one student; Proxmox serves up to
+  10 students. Docs updated to match.
+- VirtualBox networking is NAT plus Host-Only; Bridged is no longer recommended.
+- `docs/research-context.md` updated to the current research questions.
+
 ## [2.0.0] - 2026-10-03
 ### Changed
 - **Re-aligned the whole project to a segmented range.** The flat `10.30.0.0/24`

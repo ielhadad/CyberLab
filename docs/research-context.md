@@ -13,13 +13,23 @@ maintain. The result is a gap between what employers expect (applied skills
 mapped to recognized work roles) and what resource-constrained programs can
 deliver — a facet of the broader **cybersecurity skills gap**.
 
-## Research questions (template)
-- **RQ1.** [Does a single-host, Docker-based range deliver authentic hands-on
-  learning comparable to heavier VM- or cloud-based ranges?]
-- **RQ2.** [How does a project-based, NICE-aligned lab sequence affect students'
-  self-efficacy and measured competence?]
-- **RQ3.** [What are the cost, setup-time, and maintenance characteristics of TCL
-  relative to alternative range models?]
+## Research questions
+The study evaluates the environment, not learners, in the context of Connecticut
+Community Colleges.
+
+- **RQ1. Technical and economic feasibility.** How do AWS, AWS Academy Learner Lab,
+  Microsoft Azure, a commercial VPS, VirtualBox, and Proxmox compare in deployment
+  efficiency, resource use, reliability, concurrent-session capacity, cost, and
+  administrative effort when running CyberLab under standardized workloads
+  representative of Connecticut Community College cybersecurity courses?
+- **RQ2. Security and compliance.** To what extent does each deployment environment
+  meet predefined requirements for laboratory isolation, access control, student
+  data protection, and institutional authorization applicable to Connecticut
+  Community Colleges?
+- **RQ3. NICE Framework alignment.** To what extent do CyberLab's environment and lab
+  activities support the Task, Knowledge, and Skill (TKS) statements of the NICE
+  Framework work roles, and which work roles are fully supported, partially
+  supported, or not supported?
 
 ## Approach
 TCL operationalizes three established frameworks:
@@ -33,24 +43,32 @@ TCL operationalizes three established frameworks:
   lab maps to a work role, tying activity to employer-recognized competencies.
 
 The artifact itself is the intervention: a reproducible range (this repository)
-plus 26 NICE-aligned labs.
+plus 30 NICE-aligned labs.
 
 ## Contribution
 1. An **open, reproducible, low-cost** range design that runs on a single host.
 2. A **NICE-aligned, PBL-structured** lab set released under CC BY 4.0 for reuse
    and adaptation.
-3. [An evaluation of its learning and cost-effectiveness outcomes — to be
-   completed.]
+3. An evaluation of its feasibility, security and compliance, and NICE Framework
+   alignment across six deployment environments.
 
-## Evaluation plan (template)
-- **Design:** [e.g., pre/post self-efficacy survey; practical skills assessment;
-  comparison section or prior-cohort baseline.]
-- **Participants:** [course(s), cohort size, consent.]
-- **Measures:** [instrument(s), rubric tied to the NICE mapping, completion and
-  time-on-task from lab deliverables.]
-- **Analysis:** [methods.]
-- **Ethics/IRB:** [status and approval number. Note: all lab activity is
-  contained; the social-engineering lab uses fabricated credentials only.]
+## Evaluation plan
+- **Design:** quantitative-dominant mixed methods; environment-only evaluation.
+- **Participants:** none. Units of analysis are deployments, requirements, and
+  NICE Framework TKS statements.
+- **Environments:** AWS, AWS Academy Learner Lab, Microsoft Azure, a commercial VPS
+  and VirtualBox (one dedicated student per deployment), and Proxmox (up to 10
+  concurrent students per host).
+- **Measures:** deployment time and success, functional self-test results, resource
+  use and availability (Prometheus/node_exporter), cost per student and per course
+  section, a predefined compliance checklist, and a crosswalk of lab activities to
+  NICE Framework Components v2.2.0.
+- **Analysis:** descriptive statistics; inter-rater reliability (Cohen's/Fleiss'
+  kappa with bootstrap 95% CIs) for the crosswalk; qualitative field notes and
+  reviewer comments to explain the quantitative results.
+- **Ethics/IRB:** [status of the "not human subjects research" determination. Note:
+  all lab activity is contained; the social-engineering lab uses fabricated
+  credentials only.]
 
 ## Reproducibility
 The range is defined entirely in `range/` (Compose file, attacker image, DNS
