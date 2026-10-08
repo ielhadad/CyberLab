@@ -9,7 +9,7 @@ A. Install the virtual machine
  Download an Ubuntu Server 24.04 LTS ISO (or Kali Linux).
  Create a new VM: 4+ CPUs, 8+ GB RAM (16 GB ideal), 60 GB disk.
  Attach the ISO and install the OS (create your login user when prompted).
- Network: add a Host-Only or Bridged adapter so you can reach the VM, and note the VM's IP (ip a).
+ Network: add a Host-Only or NAT adapter so you can reach the VM, and note the VM's IP (ip a).
  Take a VirtualBox snapshot of the clean install (easy rollback later).
 B. Install Docker (inside the VM)
  sudo apt-get update
